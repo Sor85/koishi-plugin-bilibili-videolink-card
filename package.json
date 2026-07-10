@@ -1,0 +1,42 @@
+{
+  "name": "koishi-plugin-bilibili-videolink-analysis-fork",
+  "description": "解析 B 站链接并生成图文卡片",
+  "license": "MIT",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "homepage": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-analysis-fork",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-analysis-fork.git"
+  },
+  "keywords": [
+    "chatbot",
+    "koishi",
+    "plugin",
+    "B站视频解析",
+    "bilibili-videolink-analysis-fork"
+  ],
+  "peerDependencies": {
+    "koishi": "^4.18.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "koishi": "^4.18.7",
+    "koishi-plugin-puppeteer": "^3.9.0",
+    "typescript": "^5.7.3"
+  },
+  "koishi": {
+    "description": {
+      "zh": "解析 B 站链接并生成图文卡片"
+    }
+  }
+}
