@@ -1,5 +1,5 @@
 import { Schema, Context } from "koishi";
-export declare const name = "bilibili-videolink-analysis-fork";
+export declare const name = "bilibili-videolink-card";
 export declare const inject: {
     optional: string[];
 };

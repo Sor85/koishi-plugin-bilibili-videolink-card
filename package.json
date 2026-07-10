@@ -1,5 +1,5 @@
 {
-  "name": "koishi-plugin-bilibili-videolink-analysis-fork",
+  "name": "koishi-plugin-bilibili-videolink-card",
   "description": "解析 B 站链接，生成含弹幕、热门评论的 PNG 图文卡片",
   "license": "MIT",
   "version": "0.0.1",
@@ -13,17 +13,17 @@
   "scripts": {
     "build": "tsc -p tsconfig.json"
   },
-  "homepage": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-analysis-fork",
+  "homepage": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-card",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-analysis-fork.git"
+    "url": "https://github.com/Sor85/koishi-plugin-bilibili-videolink-card.git"
   },
   "keywords": [
     "chatbot",
     "koishi",
     "plugin",
     "B站视频解析",
-    "bilibili-videolink-analysis-fork"
+    "bilibili-videolink-card"
   ],
   "peerDependencies": {
     "koishi": "^4.18.7"

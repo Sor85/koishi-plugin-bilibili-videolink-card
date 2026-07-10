@@ -2,9 +2,9 @@ import { Schema, Logger, Context } from "koishi";
 import type { } from "koishi-plugin-puppeteer";
 import { BilibiliParser } from "./utils";
 
-const logger = new Logger('bilibili-videolink-analysis-fork');
+const logger = new Logger('bilibili-videolink-card');
 
-export const name = 'bilibili-videolink-analysis-fork';
+export const name = 'bilibili-videolink-card';
 export const inject = {
   optional: ['puppeteer'],
 }
@@ -71,7 +71,7 @@ export const Config = Schema.intersect([
           .default(['text', 'video'])
           .role('checkbox')
           .description('选择要返回的内容组件'),
-        BVnumberParsing: Schema.boolean().default(true).description("是否允许根据`独立的BV、AV号`解析视频 `开启后，可以通过视频的BV、AV号解析视频。` <br>  [触发说明见README](https://www.npmjs.com/package/koishi-plugin-bilibili-videolink-analysis-fork)"),
+        BVnumberParsing: Schema.boolean().default(true).description("是否允许根据`独立的BV、AV号`解析视频 `开启后，可以通过视频的BV、AV号解析视频。` <br>  [触发说明见README](https://www.npmjs.com/package/koishi-plugin-bilibili-videolink-card)"),
       }).description('基础解析设置'),
       // 视频过滤规则
       Schema.object({

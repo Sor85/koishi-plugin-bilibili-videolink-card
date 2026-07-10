@@ -1534,9 +1534,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koishi-plugin-bilibili-videolink-analysis-fork@workspace:.":
+"koishi-plugin-bilibili-videolink-card@workspace:.":
   version: 0.0.0-use.local
-  resolution: "koishi-plugin-bilibili-videolink-analysis-fork@workspace:."
+  resolution: "koishi-plugin-bilibili-videolink-card@workspace:."
   dependencies:
     "@types/node": "npm:^22.13.10"
     koishi: "npm:^4.18.7"
