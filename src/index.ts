@@ -64,7 +64,7 @@ export const Config = Schema.intersect([
           .description('选择解析来源'),
         videoParseComponents: Schema.array(Schema.union([
           Schema.const('log').description('记录日志'),
-          Schema.const('text').description('返回图文'),
+          Schema.const('text').description('返回图片'),
           Schema.const('link').description('返回视频直链'),
           Schema.const('video').description('返回视频'),
         ]))
