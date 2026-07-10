@@ -1,5 +1,7 @@
 # koishi-plugin-bilibili-videolink-analysis-fork
 
+本项目 fork 自 [koishi-shangxue-plugins/koishi-shangxue-apps](https://github.com/koishi-shangxue-plugins/koishi-shangxue-apps/tree/main/) 中的 `bilibili-videolink-analysis` 插件。
+
 解析哔哩哔哩视频链接，并按需返回图文卡片、视频直链或视频文件。
 
 ## 功能
