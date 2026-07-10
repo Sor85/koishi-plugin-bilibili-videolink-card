@@ -1,6 +1,6 @@
 {
   "name": "koishi-plugin-bilibili-videolink-analysis-fork",
-  "description": "解析 B 站链接并生成图文卡片",
+  "description": "解析 B 站链接，生成含弹幕、热门评论的 PNG 图文卡片",
   "license": "MIT",
   "version": "0.0.1",
   "main": "lib/index.js",
@@ -36,7 +36,7 @@
   },
   "koishi": {
     "description": {
-      "zh": "解析 B 站链接并生成图文卡片"
+      "zh": "解析 B 站链接，生成含弹幕、热门评论的 PNG 图文卡片"
     }
   }
 }
