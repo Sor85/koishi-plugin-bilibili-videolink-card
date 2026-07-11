@@ -178,7 +178,7 @@ export class BilibiliParser {
 
             const ret = await this.extractLinks(session, [link]);
             if (ret && !this.isLinkProcessedRecently(ret, session.channelId)) {
-                this.logInfo(`[队列] 开始下载视频`);
+                this.logInfo(`[队列] 开始处理视频`);
                 // 直接处理，不再使用视频级别的缓冲
                 await this.processVideoTask(session, ret, { video: true });
                 this.logInfo(`[队列] 视频处理完成`);
@@ -368,7 +368,7 @@ export class BilibiliParser {
                             let videoData: string = video.url; // 初始为原始 URL
                             let fileTooLarge = false; // 标记文件是否过大
 
-                            if (this.config.filebuffer) {
+                            if (this.config.filebuffer && (options.audio || this.config.videoParseComponents.includes('video'))) {
                                 try {
                                     // 使用 Node.js 原生 fetch 下载视频（仅获取 header 检查大小）
                                     const response = await fetch(video.url, {
