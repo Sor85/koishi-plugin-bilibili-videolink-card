@@ -45,6 +45,7 @@ export declare class BilibiliParser {
     private fetchDanmaku;
     private fetchComments;
     private renderVideoCard;
+    private renderCommentMessage;
     private generateCardHtml;
     private icon;
     /**

@@ -642,6 +642,19 @@ export class BilibiliParser {
         }
     }
 
+    private renderCommentMessage(message: string, emotes: Record<string, { url?: string }> = {}): string {
+        const names = Object.keys(emotes);
+        if (names.length === 0) return this.escapeHtml(message);
+
+        const pattern = new RegExp(`(${names.map((name) => name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'g');
+        return message.split(pattern).map((part) => {
+            const url = emotes[part]?.url;
+            return url
+                ? `<img class="emote" src="${this.escapeHtml(url)}" alt="${this.escapeHtml(part)}" />`
+                : this.escapeHtml(part);
+        }).join('');
+    }
+
     private generateCardHtml(info: any, danmaku: string[], comments: any[]): string {
         const stat = info.stat || {};
         const owner = info.owner || {};
@@ -666,7 +679,7 @@ export class BilibiliParser {
                   <img src="${this.escapeHtml(comment.member?.avatar)}" />
                   <div>
                     <div class="comment-user">${this.escapeHtml(comment.member?.uname)}${levelBadge}</div>
-                    <p>${this.escapeHtml(comment.content?.message)}</p>
+                    <p>${this.renderCommentMessage(comment.content?.message || '', comment.content?.emote)}</p>
                     <small>${this.formatDate(comment.ctime)}　${this.icon('like')} ${this.numeral(comment.like || 0)}</small>
                   </div>
                 </article>`;
@@ -699,6 +712,7 @@ export class BilibiliParser {
   .comment-user { display: flex; align-items: center; gap: 6px; color: #61666d; font-size: 16px; }
   .level { padding: 2px 6px; border-radius: 4px; color: #4190d9; background: #e8f3ff; font-size: 12px; font-weight: 600; }
   .comment p { margin: 5px 0 8px; font-size: 17px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  .comment p .emote { display: inline-block; width: 24px; height: 24px; object-fit: contain; vertical-align: -6px; }
   .comment small { color: #9499a0; font-size: 14px; }
   .comment small svg { display: inline-block; width: 14px; height: 14px; fill: currentColor; vertical-align: -2px; }
   .empty { margin: 0; color: #9499a0; font-size: 16px; }
