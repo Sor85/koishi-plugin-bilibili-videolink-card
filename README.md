@@ -4,7 +4,7 @@
 
 解析哔哩哔哩视频链接，并按需返回图文卡片、视频直链或视频文件。
 
-本 fork 将原有文本图文替换为 Puppeteer 渲染的 PNG 视频卡片：卡片展示封面、时长、播放与互动统计、UP 主、弹幕、最多 5 条热门评论及评论用户等级。
+本 fork 将原有文本图文替换为 Takumi 渲染的 PNG 视频卡片：卡片展示封面、时长、播放与互动统计、UP 主、弹幕、最多 5 条热门评论及评论用户等级。
 
 ## 功能
 
@@ -19,7 +19,7 @@
 yarn add koishi-plugin-bilibili-videolink-card
 ```
 
-启用 `videoParseComponents` 中的“图文”组件时，需要 `koishi-plugin-puppeteer` 服务；未启用图文组件时，直链和视频功能不依赖该服务。
+图文卡片由插件内置的 Takumi 渲染，不需要额外安装浏览器或 Puppeteer 服务。
 
 ## 构建
 

@@ -4,6 +4,7 @@ export declare class BilibiliParser {
     private ctx;
     private config;
     private logger;
+    private cardRenderer?;
     private lastProcessedUrls;
     private processingQueue;
     private isProcessing;
@@ -47,6 +48,8 @@ export declare class BilibiliParser {
     private fetchTags;
     private fetchOnline;
     private renderVideoCard;
+    private getCardRenderer;
+    private fetchCardResources;
     private renderCommentMessage;
     private generateCardHtml;
     private icon;

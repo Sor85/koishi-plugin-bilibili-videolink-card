@@ -1,8 +1,5 @@
 import { Schema, Context } from "koishi";
 export declare const name = "bilibili-videolink-card";
-export declare const inject: {
-    optional: string[];
-};
 export declare const usage = "\n";
 export interface Config {
     enablebilianalysis: boolean;

@@ -1,13 +1,9 @@
 import { Schema, Logger, Context } from "koishi";
-import type { } from "koishi-plugin-puppeteer";
 import { BilibiliParser } from "./utils";
 
 const logger = new Logger('bilibili-videolink-card');
 
 export const name = 'bilibili-videolink-card';
-export const inject = {
-  optional: ['puppeteer'],
-}
 export const usage = `
 `;
 
