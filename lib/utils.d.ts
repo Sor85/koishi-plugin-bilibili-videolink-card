@@ -42,6 +42,7 @@ export declare class BilibiliParser {
     private getVideoUrl;
     private escapeHtml;
     private formatDate;
+    private formatTime;
     private formatDuration;
     private fetchDanmaku;
     private fetchComments;

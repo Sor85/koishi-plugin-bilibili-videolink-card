@@ -576,15 +576,19 @@ export class BilibiliParser {
     }
 
     private formatDate(timestamp: number): string {
-        return new Date(timestamp * 1000).toLocaleString('zh-CN', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: false,
-        });
+        const date = new Date(timestamp * 1000);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    private formatTime(timestamp: number): string {
+        const date = new Date(timestamp * 1000);
+        const hour = String(date.getHours()).padStart(2, '0');
+        const minute = String(date.getMinutes()).padStart(2, '0');
+        const second = String(date.getSeconds()).padStart(2, '0');
+        return `${hour}:${minute}:${second}`;
     }
 
     private formatDuration(duration: number): string {
@@ -763,7 +767,7 @@ export class BilibiliParser {
                   <div>
                     <div class="comment-user">${this.escapeHtml(comment.member?.uname)}${levelBadge}</div>
                     <p>${this.renderCommentMessage(comment.content?.message || '', comment.content?.emote)}</p>
-                    <small>${this.formatDate(comment.ctime)}　${this.icon('like')} ${this.numeral(comment.like || 0)}</small>
+                    <small><span>${this.formatDate(comment.ctime)}</span><span class="comment-time">${this.formatTime(comment.ctime)}</span><span class="comment-like">${this.icon('like')} ${this.numeral(comment.like || 0)}</span></small>
                   </div>
                 </article>`;
             }).join('')
@@ -776,9 +780,9 @@ export class BilibiliParser {
   .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .cover-meta { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: flex-end; padding: 28px 16px 12px; color: #fff; font-size: 15px; background: linear-gradient(transparent, rgba(0, 0, 0, .68)); }
   .main { padding: 22px 24px 28px; }
-  .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
-  h1 { margin: 0; font-size: 25px; line-height: 1.38; font-weight: 750; }
-  .online { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 5px; color: #9499a0; font-size: 15px; white-space: nowrap; }
+  .title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+  h1 { flex: 1; min-width: 0; margin: 0; font-size: 25px; line-height: 1.38; font-weight: 750; }
+  .online { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 5px; margin-top: 9px; color: #9499a0; font-size: 15px; white-space: nowrap; }
   .icon { width: 16px; height: 16px; object-fit: contain; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
   .tags span { padding: 5px 9px; border-radius: 6px; color: #61666d; background: #f1f2f3; font-size: 14px; }
@@ -801,8 +805,10 @@ export class BilibiliParser {
   .level { padding: 2px 6px; border-radius: 4px; color: #4190d9; background: #e8f3ff; font-size: 12px; font-weight: 600; }
   .comment p { margin: 5px 0 8px; font-size: 17px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
   .emote { display: inline-block; width: 24px; height: 24px; object-fit: contain; vertical-align: -6px; }
-  .comment small { color: #9499a0; font-size: 14px; }
-  .comment small .icon { display: inline-block; width: 14px; height: 14px; vertical-align: -2px; }
+  .comment small { display: flex; align-items: center; color: #9499a0; font-size: 14px; }
+  .comment-time { margin-left: 8px; }
+  .comment-like { display: inline-flex; align-items: center; gap: 4px; margin-left: 16px; }
+  .comment-like .icon { width: 14px; height: 14px; }
   .empty { margin: 0; color: #9499a0; font-size: 16px; }
 </style>
 <main class="card">
