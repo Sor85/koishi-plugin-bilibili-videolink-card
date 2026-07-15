@@ -689,6 +689,7 @@ export class BilibiliParser {
         const fontPackages = [
             '@fontsource-variable/noto-sans-sc',
             '@fontsource-variable/noto-sans-kr',
+            '@fontsource/dejavu-sans',
         ];
         const fonts = fontPackages.flatMap((fontPackage, packageIndex) => {
             const fontDirectory = resolve(dirname(require.resolve(`${fontPackage}/package.json`)), 'files');
